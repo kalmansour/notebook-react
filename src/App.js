@@ -1,13 +1,21 @@
-import logo from './logo.svg'
-import './App.css'
-import ItemList from './components/ItemList'
+import { observer } from "mobx-react";
+
+// Styles
+import { GlobalStyle, theme } from "./styles";
+import { ThemeProvider } from "styled-components";
+
+//Components
+import Routes from "./components/Routes";
+// import NavBar from "./components/Navbar";
 
 function App() {
   return (
-    <div className='App'>
-      <ItemList />
-    </div>
-  )
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      {/* <NavBar /> */}
+      <Routes />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default observer(App);
