@@ -6,13 +6,13 @@ import { ThemeProvider } from "styled-components";
 
 //Components
 import Routes from "./components/Routes";
-// import NavBar from "./components/Navbar";
+import NavBar from "./components/Navbar";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes />
     </ThemeProvider>
   );

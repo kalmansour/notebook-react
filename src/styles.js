@@ -13,6 +13,17 @@ export const theme = {
   backgroundColor: "white", // main background color
 };
 
+//Buttons Styles
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;
+
 //NavBar Styles
 export const Logo = styled(Link)`
   padding: 0.75em;
@@ -55,6 +66,17 @@ export const ListWrapper = styled.div`
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+`;
+
+export const DetailWrapper = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  p {
+    vertical-align: middle;
+  }
 `;
 
 //Home Component Styles

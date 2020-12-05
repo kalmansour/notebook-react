@@ -6,7 +6,8 @@ const NoteItem = ({ note }) => {
   return (
     <NoteItemStyled key={note.name}>
       {/* <Link to={`/notes/${note.slug}`}></Link> */}
-      <p>{note.description}</p>
+      <p>{note.title}</p>
+      <p>{note.content}</p>
     </NoteItemStyled>
   );
 };

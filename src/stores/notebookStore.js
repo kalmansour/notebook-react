@@ -8,6 +8,7 @@ class NotebookStore {
     makeObservable(this, {
       notebooks: observable,
       fetchNotebooks: action,
+      createNotebook: action,
     });
   }
 
@@ -17,6 +18,18 @@ class NotebookStore {
       this.notebooks = response.data;
     } catch (error) {
       console.error("NotebookStore -> fetchNotebooks -> error", error);
+    }
+  };
+
+  createNotebook = async (newNotebook) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/notebooks",
+        newNotebook
+      );
+      this.notebooks.push(response.data);
+    } catch (error) {
+      console.error("NotebookStore -> createNotebooks -> error", error);
     }
   };
 }

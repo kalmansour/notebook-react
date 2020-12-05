@@ -1,5 +1,6 @@
 // Styles
 import { NavStyled, NavItem } from "../styles";
+
 const NavBar = () => {
   return (
     <NavStyled className="navbar navbar-expand-lg">

@@ -9,12 +9,18 @@ import ListWrapper from "../styles";
 
 //Components
 import NotebookItem from "./NotebookItem";
+import AddNotebookButton from "./buttons/AddNotebookButton";
 
 const NotebookList = () => {
   const notebookList = notebookStore.notebooks.map((notebook) => (
     <NotebookItem notebook={notebook} key={notebook.id} />
   ));
-  return <ListWrapper> {notebookList}</ListWrapper>;
+  return (
+    <>
+      <AddNotebookButton />
+      <ListWrapper> {notebookList}</ListWrapper>
+    </>
+  );
 };
 
 export default observer(NotebookList);
