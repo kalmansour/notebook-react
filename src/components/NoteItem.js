@@ -11,7 +11,7 @@ const NoteItem = ({ note }) => {
     <NoteItemStyled key={note.name}>
       {/* <Link to={`/notes/${note.slug}`}>
       </Link>  */}
-      <p>{note.title}</p>
+      <h4>{note.title}</h4>
       <p>{note.content}</p>
       <UpdateNoteButton note={note} />
       <DeleteNoteButton noteId={note.noteId} />

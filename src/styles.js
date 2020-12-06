@@ -58,8 +58,12 @@ export const NavItem = styled(NavLink)`
 
 //Note Styles
 const NoteItemStyled = styled.div`
+  margin: 20px;
+  h4 {
+    text-align: left;
+  }
   p {
-    text-align: center;
+    text-align: left;
   }
 `;
 
