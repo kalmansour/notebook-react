@@ -96,7 +96,6 @@ export const DetailWrapper = styled.div`
 //Home Component Styles
 export const Title = styled.h1`
   text-align: center;
-  background-color: #f2e596;
   font-family: Arial, Helvetica, sans-serif;
 `;
 
