@@ -29,7 +29,7 @@ const NotebookDetail = () => {
     <div className="row">
       <div className="container">
         <DetailWrapper className="col-12">
-          <p>{notebook.name}</p>
+          <h1>{notebook.name}</h1>
           <p>{notebook.cover}</p>
         </DetailWrapper>
       </div>
