@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { observer } from "mobx-react";
 import NoteItemStyled from "../styles";
 
@@ -9,10 +8,8 @@ import UpdateNoteButton from "./buttons/UpdateNoteButton";
 const NoteItem = ({ note }) => {
   return (
     <NoteItemStyled key={note.name}>
-      {/* <Link to={`/notes/${note.slug}`}>
-      </Link>  */}
       <h4>{note.title}</h4>
-      <p>{note.content}</p>
+      <p style={{ color: "black" }}>{note.content}</p>
       <UpdateNoteButton note={note} />
       <DeleteNoteButton noteId={note.noteId} />
     </NoteItemStyled>

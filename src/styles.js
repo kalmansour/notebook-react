@@ -110,7 +110,6 @@ export const HomeImage = styled.img`
   margin-left: auto;
   margin-right: auto;
   width: 40%;
-  /* padding-bottom: 10px; */
   border: thick solid;
   border-color: ${(props) => props.theme.mainColor};
 `;
