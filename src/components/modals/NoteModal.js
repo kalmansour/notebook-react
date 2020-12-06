@@ -3,11 +3,13 @@ import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
 import noteStore from "../../stores/noteStore";
 
-const NoteModal = ({ notebook, isOpen, closeModal }) => {
-  const [note, setNote] = useState({
-    title: "",
-    content: "",
-  });
+const NoteModal = ({ notebook, isOpen, closeModal, oldNote }) => {
+  const [note, setNote] = useState(
+    oldNote ?? {
+      title: "",
+      content: "",
+    }
+  );
 
   const handleChange = (event) => {
     setNote({ ...note, [event.target.name]: event.target.value });
@@ -15,7 +17,7 @@ const NoteModal = ({ notebook, isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    noteStore.createNote(note, notebook);
+    noteStore[oldNote ? "updateNote" : "createNote"](note, notebook);
     closeModal();
   };
 
@@ -49,7 +51,7 @@ const NoteModal = ({ notebook, isOpen, closeModal }) => {
           />
         </div>
         <CreateButtonStyled type="submit" className="btn float-right">
-          Create
+          {oldNote ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>

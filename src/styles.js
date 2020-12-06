@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 export const theme = {
   mainColor: "red", // main font color
   backgroundColor: "white", // main background color
+  blue: "blue",
+  purple: "purple",
 };
 
 //Buttons Styles
@@ -24,12 +26,20 @@ export const CreateButtonStyled = styled.button`
   }
 `;
 
+export const UpdateButtonStyled = styled.p`
+  color: ${(props) => props.theme.blue};
+`;
+
+export const DeleteButtonStyled = styled.p`
+  color: ${({ theme }) => theme.purple};
+`;
+
 //NavBar Styles
 export const Logo = styled(Link)`
-  padding: 0.75em;
+  padding-left: 50px;
 
   img {
-    width: 8rem;
+    width: 5rem;
   }
 `;
 
@@ -86,7 +96,7 @@ export const Title = styled.h1`
   font-family: Arial, Helvetica, sans-serif;
 `;
 
-export const Description = styled.h4`
+export const Description = styled.h3`
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;

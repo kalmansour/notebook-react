@@ -1,9 +1,12 @@
-// Styles
-import { NavStyled, NavItem } from "../styles";
+import notebookLogo from "../notebook-logo.png";
+import { NavStyled, NavItem, Logo } from "../styles";
 
 const NavBar = () => {
   return (
     <NavStyled className="navbar navbar-expand-lg">
+      <Logo className="navbar-brand" to="/" href="#">
+        <img src={notebookLogo} alt="logo" width="50" />
+      </Logo>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">

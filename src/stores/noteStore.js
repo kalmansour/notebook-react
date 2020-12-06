@@ -1,7 +1,6 @@
 import { action, makeObservable, observable } from "mobx";
-// import slugify from "react-slugify";
+import slugify from "react-slugify";
 import axios from "axios";
-import notebookStore from "./notebookStore";
 
 class NoteStore {
   notes = [];
@@ -11,6 +10,8 @@ class NoteStore {
       notes: observable,
       fetchNotes: action,
       createNote: action,
+      updateNote: action,
+      deleteNote: action,
     });
   }
 
@@ -27,14 +28,41 @@ class NoteStore {
 
   createNote = async (newNote, notebook) => {
     try {
+      const formData = new FormData();
+      for (const key in newNote) formData.append(key, newNote[key]);
       const response = await axios.post(
         `http://localhost:8000/notebooks/${notebook.id}/notes`,
-        newNote
+        formData
       );
       this.notes.push(response.data);
-      notebookStore.notes.push({ id: response.date.id });
+      notebook.notes.push({ id: response.date.id });
     } catch (error) {
       console.error("NotebookStore -> createNotebooks -> error", error);
+    }
+  };
+
+  updateNote = async (updatedNote) => {
+    try {
+      const formData = new FormData();
+      for (const key in updatedNote) formData.append(key, updatedNote[key]);
+      await axios.put(
+        `http://localhost:8000/notes/${updatedNote.id}`,
+        formData
+      );
+      const note = this.notes.find((note) => note.id === updatedNote.id);
+      for (const key in note) note[key] = updatedNote[key];
+      note.slug = slugify(note.name);
+    } catch (error) {
+      console.log("NoteeStore -> updateNote -> error", error);
+    }
+  };
+
+  deleteNote = async (noteId) => {
+    try {
+      await axios.delete(`http://localhost:8000/notes/${noteId}`);
+      this.notes = this.notes.filter((note) => note.id !== +noteId);
+    } catch (error) {
+      console.error("NoteStore -> deleteNote -> error", error);
     }
   };
 }

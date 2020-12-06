@@ -9,7 +9,7 @@ import ListWrapper from "../styles";
 
 //Components
 import NoteItem from "./NoteItem";
-import AddNotebutton from "./buttons/AddNotebutton"; //Need to create a NoteModal for NoteList
+import AddNotebutton from "./buttons/AddNoteButton"; //Need to create a NoteModal for NoteList
 
 const NoteList = () => {
   const noteList = noteStore.notes.map((note) => (

@@ -3,7 +3,7 @@ import { BsPlusCircle } from "react-icons/bs";
 
 import NoteModal from "../modals/NoteModal";
 
-const AddNotebutton = ({ note }) => {
+const AddNoteButton = ({ note }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => setIsOpen(false);
@@ -17,4 +17,4 @@ const AddNotebutton = ({ note }) => {
   );
 };
 
-export default AddNotebutton;
+export default AddNoteButton;
