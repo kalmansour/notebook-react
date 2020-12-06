@@ -33,7 +33,7 @@ const NoteModal = ({ notebook, isOpen, closeModal, oldNote }) => {
             <label>Title</label>
             <input
               value={note.title}
-              name="name"
+              name="title"
               onChange={handleChange}
               type="text"
               className="form-control"
@@ -44,7 +44,7 @@ const NoteModal = ({ notebook, isOpen, closeModal, oldNote }) => {
           <label>Content</label>
           <input
             value={note.content}
-            name="cover"
+            name="content"
             onChange={handleChange}
             type="text"
             className="form-control"

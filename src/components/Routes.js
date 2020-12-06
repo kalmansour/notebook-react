@@ -9,7 +9,7 @@ import NotebookDetail from "./NotebookDetail";
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/notebooks/:notebookSlug">
+      <Route path="/notebooks/:notebookId">
         <NotebookDetail />
       </Route>
       <Route path="/notebooks">

@@ -5,7 +5,7 @@ import NotebookItemStyled from "../styles";
 const NotebookItem = ({ notebook }) => {
   return (
     <NotebookItemStyled>
-      <Link to={`/notebooks/${notebook.slug}`} style={{ color: "red" }}>
+      <Link to={`/notebooks/${notebook.id}`} style={{ color: "red" }}>
         <h4>{notebook.name}</h4>
       </Link>
     </NotebookItemStyled>

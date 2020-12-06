@@ -15,10 +15,10 @@ import { DetailWrapper } from "../styles";
 import React from "react";
 
 const NotebookDetail = () => {
-  const { notebookSlug } = useParams();
+  const { notebookId } = useParams();
 
   const notebook = notebookStore.notebooks.find(
-    (notebook) => notebook.slug === notebookSlug
+    (notebook) => notebook.id === +notebookId
   );
 
   if (!notebook) return <Redirect to="/notebooks" />;
