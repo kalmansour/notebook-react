@@ -1,26 +1,28 @@
 // import { useState } from "react";
-import { observer } from "mobx-react";
+import { observer } from 'mobx-react'
 
 //Stores
-import noteStore from "../stores/noteStore";
+import noteStore from '../stores/noteStore'
 
 //Styling
-import ListWrapper from "../styles";
+import ListWrapper from '../styles'
 
 //Components
-import NoteItem from "./NoteItem";
-import AddNotebutton from "./buttons/AddNoteButton"; //Need to create a NoteModal for NoteList
+import NoteItem from './NoteItem'
+import AddNotebutton from './buttons/AddNotebutton' //Need to create a NoteModal for NoteList
+import notebookStore from '../stores/notebookStore'
 
-const NoteList = () => {
-  const noteList = noteStore.notes.map((note) => (
-    <NoteItem note={note} key={note.id} />
-  ));
+const NoteList = ({ notes }) => {
+  const noteList = notes.map((note) => <NoteItem note={note} key={note.id} />)
+
   return (
     <>
       <AddNotebutton />
-      <ListWrapper>{noteList}</ListWrapper>
+      <ListWrapper>
+        {notes.length > 0 ? noteList : 'No notes found'}
+      </ListWrapper>
     </>
-  );
-};
+  )
+}
 
-export default observer(NoteList);
+export default observer(NoteList)
